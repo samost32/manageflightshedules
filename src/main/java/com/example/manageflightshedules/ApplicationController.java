@@ -224,17 +224,17 @@ public class ApplicationController {
     }
 
     private void filterTableByFrom(String fromValue) {
-        // Create a filtered list to hold the matching Flight objects
+        // Создайте отфильтрованный список для хранения соответствующих объектов полета
         ObservableList<Flight> filteredList = FXCollections.observableArrayList();
 
-        // Iterate over the flightData and check if the "from" property matches the selected value
+        // Выполните итерацию по данным рейса и проверьте, соответствует ли свойство "from" выбранному значению
         for (Flight flight : flightData) {
             if (flight.getFrom().equals(fromValue)) {
                 filteredList.add(flight);
             }
         }
 
-        // Set the filtered list as the items in the TableView
+        // Установите отфильтрованный список в качестве элементов в TableView
         addEmployee_tableView.setItems(filteredList);
     }
 
@@ -296,10 +296,10 @@ public class ApplicationController {
     void searchByOutboundDate(ActionEvent event) {
         LocalDate selectedDate = search_Outbound.getValue();
 
-        // Create a filtered list to hold the matching Flight objects
+        // Создайте отфильтрованный список для хранения соответствующих объектов 
         ObservableList<Flight> filteredList = FXCollections.observableArrayList();
 
-        // Iterate over the flightData and check if the "date" property matches the selected date
+        // Выполните итерацию по данным рейса и проверьте, соответствует ли свойство "дата" выбранной дате
         for (Flight flight : flightData) {
             LocalDate flightDate = LocalDate.parse(flight.getDate());
             if (flightDate.isEqual(selectedDate)) {
@@ -307,22 +307,21 @@ public class ApplicationController {
             }
         }
 
-        // Update the table view with the filtered list
+        // Обновите табличцу с отфильтрованным списком
         addEmployee_tableView.setItems(filteredList);
 
         String flightNumber = search_FlightNumber.getText().trim();
 
-        // Create a filtered list to hold the matching Flight objects
+        // Создайте отфильтрованный список для хранения соответствующих объектов 
         ObservableList<Flight> filteredList2 = FXCollections.observableArrayList();
 
-        // Iterate over the flightData and check if the "flightNumber" property matches the entered value
+        // Повторите данные рейса и проверьте, соответствует ли свойство "Номер рейса" введенному значению
         for (Flight flight : flightData) {
             if (flight.getFlightNumber().equals(flightNumber)) {
                 filteredList2.add(flight);
             }
         }
 
-        // Update the table view with the filtered list
         addEmployee_tableView.setItems(filteredList2);
     }
 
@@ -333,9 +332,9 @@ public class ApplicationController {
 
         // Сброс фильтрации и отображение всех данных в таблице
         addEmployee_tableView.setItems(flightData);
-        // Clear the DatePicker field
+        // Очистите поле выбора даты
         search_date.setValue(null);
-        // Clear the TextField fields and set default values
+        // Очистите поля текстового поля и установите значения по умолчанию
         search_Time.setText("00:00:00");
         search_priceEdit.clear();
 
